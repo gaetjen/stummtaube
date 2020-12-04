@@ -20,5 +20,5 @@ async def on_message(message: Message) -> None:
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.DEBUG)
     client.run(os.environ['DISCORD_TOKEN'])
