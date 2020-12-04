@@ -13,6 +13,7 @@ Data:
 * Round: List of messages
 
 ## Backlog
+* As a player I want to deregister with the bot so that I no longer get bothered by messages
 * As a user I want the round data to not get lost so that the fun can go on and on
 * As a player I want messages to be distributed evenly so that all players get to participate in a round
 * As a player I want messages to be distributed randomly so that games have variety and unpredictability
