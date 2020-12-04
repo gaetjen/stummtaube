@@ -10,6 +10,5 @@ def handle_message(message: Message) -> None:
 
     if message.content == "!join":
         players.add(message.author)
-
-    if message.content.startswith("!start") and message.author in players:
+    elif message.content.startswith("!start") and message.author in players:
         rounds.append(Round(message))
