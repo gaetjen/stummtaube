@@ -1,8 +1,7 @@
 from unittest.mock import Mock, PropertyMock, patch, MagicMock
 
-from discord import TextChannel, Message, DMChannel
+from discord import TextChannel, DMChannel
 
-from stummtaube.data.game import players
 from stummtaube.message_handler import handle_message
 
 

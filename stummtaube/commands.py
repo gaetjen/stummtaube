@@ -1,0 +1,2 @@
+START = '!start'
+JOIN = '!join'
