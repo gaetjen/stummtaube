@@ -16,7 +16,7 @@ async def on_ready() -> None:
 @client.event
 async def on_message(message: Message) -> None:
     logging.debug("on_message called for: " + message.content)
-    message_handler.handle_message(message)
+    await message_handler.handle_message(message)
 
 
 if __name__ == '__main__':

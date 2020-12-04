@@ -12,11 +12,10 @@ class Round:
 
     def __init__(self, message: Message):
         self._messages = [message]
-        self.forward_message(message)
 
-    def forward_message(self, message: Message):
+    async def forward_message(self):
         recipient: User = self.__get_next_player()
-        recipient.send(message.content.split(START, 1)[1].strip())
+        await recipient.send(self._messages[-1].content.split(START, 1)[1].strip())
 
     # will need to look at message history to select a good recipient
     def __get_next_player(self) -> User:
