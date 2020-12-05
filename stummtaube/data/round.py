@@ -8,8 +8,9 @@ from stummtaube.data.game import players
 
 
 class Round:
-    _user_messages: List[Message] = []
-    _last_forwarded_message: Message = None
+    def __init__(self):
+        self._user_messages: List[Message] = []
+        self._forwarded_messages: List[Message] = []
 
     async def forward_last_message(self):
         recipient: User = self._get_next_player()
