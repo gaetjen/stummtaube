@@ -15,6 +15,8 @@ class Round:
         recipient: User = self.__get_next_player()
         raw_content = self._messages[-1].content
         forwarded_content = raw_content.split(START, 1)[1].strip() if len(self._messages) == 1 else raw_content
+        if not forwarded_content:
+            forwarded_content = self._messages[-1].attachments[0].url
         self._last_message = await recipient.send(forwarded_content)
 
     async def add_new_message(self, message: Message):
