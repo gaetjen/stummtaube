@@ -1,18 +1,21 @@
-from discord import DMChannel
+from discord import DMChannel, User
 from discord import Message
 
+from stummtaube import main
 from stummtaube.commands import START, JOIN
 from stummtaube.data.game import players
-from stummtaube.data.round import Round, rounds
+from stummtaube.data.round import create_round
 
 
 async def handle_message(message: Message) -> None:
-    if not isinstance(message.channel, DMChannel):
+    if not isinstance(message.channel, DMChannel) or message.author == main.client:
         return
 
     if message.content == JOIN:
-        players.add(message.author)
+        join_player(message.author)
     elif message.content.startswith(START) and message.author in players:
-        new_round = Round(message)
-        await new_round.forward_message()
-        rounds.append(new_round)
+        await create_round(message)
+
+
+def join_player(author: User):
+    players.add(author)

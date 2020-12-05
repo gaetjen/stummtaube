@@ -22,4 +22,9 @@ class Round:
         return random.sample(players, 1)[0]
 
 
+async def create_round(message: Message):
+    new_round = Round(message)
+    await new_round.forward_message()
+    rounds.append(new_round)
+
 rounds: List[Round] = []
