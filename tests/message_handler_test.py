@@ -46,7 +46,7 @@ async def test_join_adds_user(join_player):
 
 
 @pytest.mark.asyncio
-@patch("stummtaube.message_handler.create_round")
+@patch("stummtaube.message_handler.rounds_management.create_round")
 async def test_start_does_not_start_round_when_player_is_not_joined(mock_create):
     mock_message = Mock(name="message")
     mock_message.channel = PropertyMock(DMChannel, name="channel")
@@ -57,7 +57,7 @@ async def test_start_does_not_start_round_when_player_is_not_joined(mock_create)
     mock_create.assert_not_called()
 
 
-@patch("stummtaube.message_handler.create_round")
+@patch("stummtaube.message_handler.rounds_management.create_round")
 @pytest.mark.asyncio
 async def test_start_creates_round(mock_create):
     mock_message = Mock(name="message")
@@ -70,7 +70,7 @@ async def test_start_creates_round(mock_create):
 
 
 @patch("stummtaube.message_handler.join_player")
-@patch("stummtaube.message_handler.create_round")
+@patch("stummtaube.message_handler.rounds_management.create_round")
 @pytest.mark.asyncio
 async def test_no_command_falls_through(mock_create, join_player):
     mock_message = Mock(name="message")
@@ -83,8 +83,8 @@ async def test_no_command_falls_through(mock_create, join_player):
     join_player.assert_not_called()
 
 
-@patch("stummtaube.message_handler.get_round_for_reply")
-@patch("stummtaube.message_handler.add_new_message")
+@patch("stummtaube.message_handler.rounds_management.get_round_for_reply")
+@patch("stummtaube.message_handler.rounds_management.add_new_message")
 @pytest.mark.asyncio
 async def test_message_is_added_when_round_is_found(add_message, get_round):
     mock_message = Mock(name="message")
