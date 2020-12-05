@@ -4,7 +4,8 @@ Stories:
 * [x] As a player I want to register with the bot so that I can participate in future games.
 * [x] As a player I want to start a new round so that me and my friends can play.
 * [x] As a player I want to receive messages that other players have sent so that I can interpret them and continue the round.
-* [ ] As a player I want to reply to a received message so that the round continues
+* [x] As a player I want to reply to a received message so that the round continues
+* [ ] As a player I want attachments to be forwarded so that the other players can see the beautiful images I created
 * [ ] As a player I want to end a round so that we can all have fun looking at the results
 * [ ] As a player I don't want the last 3 users in a round to receive the next message so that the results are more interesting
 

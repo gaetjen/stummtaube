@@ -82,3 +82,14 @@ async def test_no_command_falls_through(mock_create, join_player):
     mock_create.assert_not_called()
     join_player.assert_not_called()
 
+
+@patch("stummtaube.message_handler.get_round_for_reply")
+@patch("stummtaube.message_handler.add_new_message")
+@pytest.mark.asyncio
+async def test_message_is_added_when_round_is_found(add_message, get_round):
+    mock_message = Mock(name="message")
+    mock_message.channel = PropertyMock(DMChannel, name="channel")
+
+    await handle_message(mock_message)
+
+    add_message.assert_called_with(get_round(), mock_message)
