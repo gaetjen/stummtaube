@@ -7,6 +7,7 @@ from stummtaube.data.round import Round
 from stummtaube.data.rounds import create_round, rounds, get_round_for_reply, add_new_message
 
 
+# TODO: split
 @pytest.mark.asyncio
 async def test_created_round_has_message_and_sends_it():
     user_mock = MagicMock()
@@ -17,8 +18,8 @@ async def test_created_round_has_message_and_sends_it():
 
         await create_round(message)
 
-        assert message in next(iter(rounds.values()))._messages
-        assert len(next(iter(rounds.values()))._messages) == 1
+        assert message in next(iter(rounds.values()))._user_messages
+        assert len(next(iter(rounds.values()))._user_messages) == 1
         user_mock.send.assert_called_with("Bierschiss")
 
 
